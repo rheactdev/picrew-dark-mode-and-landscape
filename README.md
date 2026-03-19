@@ -2,7 +2,8 @@
 
 A custom UserStyle that adds a universal dark mode to [Picrew](https://picrew.me) and completely overhauls the image maker interface for desktop users by forcing a full-screen, landscape layout. 
 
-![[preview of picrew dark mode & landscape view](picrew.me_en_image_maker_2795963 (1).png)](https://raw.githubusercontent.com/rhea-manuel/picrew-dark-mode-and-landscape/refs/heads/main/picrew.me_en_image_maker_2795963%20(1).png)
+<img width="2940" height="1556" alt="image" src="https://github.com/user-attachments/assets/402ee58d-91ff-49fe-b30e-f149fd0526f2" />
+
 Picrew in example is by @Maddel_Art
 
 ## ✨ Features
