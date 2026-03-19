@@ -1,0 +1,165 @@
+/* ==UserStyle==
+@name           Picrew Dark Mode & Landscape
+@namespace      userstyles.world/user/rhea-manuel
+@version        1.1.0
+@description    Adds dark mode & landscape view
+@author         rhea-manuel
+@homepageURL    https://github.com/rhea-manuel/picrew-dark-mode-and-landscape
+@license        MIT
+==/UserStyle== */
+/* 🌙 1. DARK MODE - APPLIES EVERYWHERE */
+@-moz-document domain("picrew.me"),
+domain("www.picrew.me") {
+    html {
+        filter: invert(100%) hue-rotate(180deg) !important;
+        background: #fff !important;
+    }
+
+    img,
+    canvas,
+    svg,
+    video,
+    iframe,
+    [style*="background-image"],
+    [style*="background-color"],
+    [class*="color_"] {
+        filter: invert(100%) hue-rotate(180deg) !important;
+    }
+
+    [style*="background-color"] img,
+    [class*="color_"] img {
+        filter: none !important;
+    }
+}
+
+/* 🖥️ 2. LANDSCAPE & FIXES - ONLY APPLIES TO MAKER PAGES */
+@-moz-document regexp("https?://picrew\\.me/(.*/)?image_maker/.*") {
+
+    @media (min-width: 768px) {
+
+        /* 1. Nuke width & height limits */
+        .play-Container .image-maker-wrapper,
+        div.image-maker-wrapper,
+        .player-wrapper {
+            max-width: none !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-height: none !important;
+        }
+
+        /* 2. Hide side ads and mobile fluff */
+        .play-Container_Left,
+        .play-Container_Right,
+        .play-Imagemaker_Footer,
+        [class*="ad-wrapper"],
+        .landscape_info {
+            display: none !important;
+        }
+
+        /* 3. The Svelte Root Wrapper (Flex Row) */
+        .player-wrapper > div {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+
+        /* 🎨 4. LEFT SIDE: THE CANVAS (Maximized) */
+        .player-wrapper > div > div:has(canvas) {
+            flex: 1 1 55vw !important;
+            max-width: 55vw !important;
+            height: 100vh !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: transparent !important;
+            max-height: 95% !important;
+        }
+
+        /* Nuke the 100% padding trick and force a true aspect-ratio square */
+        .player-wrapper div:has(> canvas) {
+            width: 100% !important;
+            max-width: 95vh !important;
+            /* Prevent it from overflowing vertically */
+            height: auto !important;
+            aspect-ratio: 1 / 1 !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        .item-list-item {
+            background: #444 !important;
+        }
+
+
+
+        /* The canvas perfectly fills the bounding box */
+        canvas {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+        }
+
+        /* Keep UI buttons strictly above the canvas */
+        .player-wrapper div:has(> canvas) > button,
+        .player-wrapper div:has(> canvas) > div:not(canvas) {
+            z-index: 100 !important;
+        }
+
+        /* 🎛️ 5. RIGHT SIDE: THE MENU */
+        .player-wrapper > div > div:not(:has(canvas)) {
+            flex: 1 1 45vw !important;
+            max-width: 45vw !important;
+            height: 100vh !important;
+            overflow-y: auto !important;
+            border-left: 2px solid #ddd !important;
+            padding: 10px !important;
+            box-sizing: border-box !important;
+        }
+
+        /* 🖼️ 6. THUMBNAIL & COLOR PALETTE FIXES */
+        /* Grid correction for items */
+        .player-wrapper > div > div:not(:has(canvas)) div:has(> button img),
+        .player-wrapper > div > div:not(:has(canvas)) div:has(> div > img) {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)) !important;
+            gap: 6px !important;
+        }
+
+        /* Give the wrapper a DARK background. 
+           Because these don't have the invert filter, the global HTML invert
+           flips them to light gray (#ddd), providing perfect contrast. 
+        */
+        .player-wrapper > div > div:not(:has(canvas)) div:has(> img),
+        .player-wrapper > div > div:not(:has(canvas)) button {
+            background-color: #222 !important;
+            border-radius: 6px !important;
+            overflow: hidden !important;
+        }
+
+        /* Prevent double inversion traps on transparent items */
+        .player-wrapper > div > div:not(:has(canvas)) img {
+            background-color: transparent !important;
+            padding: 2px !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Force color palette swatches to have an outline so black/dark colors don't vanish */
+        [style*="background-color"],
+        [class*="color_"] {
+            box-shadow: inset 0 0 0 1px #888, 0 0 0 1px #888 !important;
+            border-radius: 4px !important;
+        }
+    }
+}
