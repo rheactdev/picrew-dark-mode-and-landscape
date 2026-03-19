@@ -2,6 +2,9 @@
 
 A custom UserStyle that adds a universal dark mode to [Picrew](https://picrew.me) and completely overhauls the image maker interface for desktop users by forcing a full-screen, landscape layout. 
 
+![preview of picrew dark mode & landscape view](https://file.garden/Z7zzresaFi0SdpFv/picrew.me_en_image_maker_2795963%20(1).png)
+Picrew in example is by @Maddel_Art
+
 ## ✨ Features
 
 * **Universal Dark Mode**: Applies a smart invert filter across the entire website to reduce eye strain. Images, canvases, SVGs, and color swatches are protected from the inversion so the art retains its true colors.
