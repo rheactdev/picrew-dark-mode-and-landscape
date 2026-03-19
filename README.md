@@ -5,7 +5,7 @@ A custom UserStyle that adds a universal dark mode to [Picrew](https://picrew.me
 ![1](https://github.com/user-attachments/assets/949f5c8f-7d0a-4ace-958d-5eafd80667fb)
 
 
-Picrew in example is by @Maddel_Art
+Picrew in example is by @rainbun
 
 ## ✨ Features
 
@@ -23,9 +23,8 @@ To use this theme, you will need a user style manager extension installed in you
 1. Install **Stylus** for your browser:
    * [Stylus for Chromium](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
    * [Stylus for Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
-2. Open the Stylus extension and click **Write style** for `picrew.me`.
-3. Copy the CSS code from `style.user.css` in this repository and paste it into the Stylus text editor.
-4. Click **Save** on the left side.
+2. Install the theme from userstyles.world
+   * [Install Link](https://userstyles.world/style/27161/picrew-dark-mode-landscape)
 
 ## 🖥️ Compatibility
 
